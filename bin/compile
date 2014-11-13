@@ -7,6 +7,9 @@ cache_dir=$2
 set -e
 
 echo "-----> Installing nginx-light with apt-get"
+echo "       Using old repos for Ubuntu"
+
+sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
 
 apt-get -y update
 apt-get -y install nginx-light
